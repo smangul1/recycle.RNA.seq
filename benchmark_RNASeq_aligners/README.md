@@ -1,8 +1,11 @@
+
+
+
 # Test performace (number of unmapped reads) of RNA-Seq aligners
 
 ## Data 
 
-15 SRA samples were randomly selected. 
+10 SRA samples were randomly selected. 
 
 Comand used to download samples:
 
@@ -11,7 +14,8 @@ while  read line; do echo "/u/home/h/harryyan//sratoolkit/bin/fastq-dump --split
 ```
 
 ```
-samples_15.txt
+Raw fastq files are available here https://drive.google.com/drive/folders/0Bx1fyWeQo3cOYVNtQVNFMDk0RHc?usp=sharing
+
 
 SRR1003825
 SRR1026886
