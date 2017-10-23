@@ -8,24 +8,24 @@ AUTHOR="Serghei Mangul"
 ##########          The main template script          ##########
 ################################################################
 
-toolName="STAR"
-toolPath="/u/home/h/harryyan/project-eeskin/fusion/tools/STAR/STAR"
-#index="/u/home/h/harryyan/project-eeskin/fusion/CTAT/GRCh37_gencode_v19_CTAT_lib_July272016_prebuilt/ref_genome.fa.star.idx"
-
-index="/u/home/h/harryyan/project-eeskin/utilities/index/human/star/GRCh38_gencode_v26_CTAT_lib_July192017/ctat_genome_lib_build_dir/ref_genome.fa.star.idx"
+toolName="hisat2"
+toolPath="/u/home/h/harryyan/project-eeskin/utilities/hisat2-2.1.0/hisat2"
+index="/u/home/h/harryyan/project-eeskin/utilities/hisat2-2.1.0/ref_genome/grch38/genome"
 
 
 
-if [ $# -lt 3 ]
+
+
+
+if [ $# -lt 2 ]
 then
 echo "********************************************************************"
 echo "Script was written for project : Comprehensive analysis of RNA-sequencing to find the source of 1 trillion reads across diverse adult human tissues"
 echo "This script was written by Serghei Mangul"
 echo "********************************************************************"
 echo ""
-echo "1 <input1>   - R1.fastq"
-echo "2 <input2>   - R2.fastq"
-echo "3 <outdir>  - dir to save the output"
+echo "1 <input1>   - R.fastq"
+echo "2 <outdir>  - dir to save the output"
 echo "--------------------------------------"
 exit 1
 fi
@@ -34,9 +34,7 @@ fi
 
 # mandatory part
 input1=$1
-input2=$2
-outdir=$3
-
+outdir=$2
 
 
 # STEP 0 - create output directory if it does not exist
@@ -68,12 +66,12 @@ printf "%s --- RUNNING %s\n" "$now" $toolName >> $logfile
 res1=$(date +%s.%N)
 
 
+. /u/local/Modules/default/init/modules.sh
+module load samtools
 
-echo "$toolPath --genomeDir $index --readFilesIn $input1  $input2 --outSAMunmapped Within --outSAMtype BAM Unsorted --outFileNamePrefix  $outdir/${toolName}_$(basename ${input1%.*})_ >> $logfile 2>>$logfile"
-$toolPath --genomeDir $index --readFilesIn $input1  $input2 --outSAMunmapped Within --outSAMtype BAM Unsorted --outFileNamePrefix  $outdir/${toolName}_$(basename ${input1%.*})_ >> $logfile 2>>$logfile
+$toolPath -x $index -U $input1 | samtools view -bS - >$outdir/${toolName}_$(basename ${input1%.*}).bam 2>>$logfile
+samtools view -f 0x4 -bh $outdir/${toolName}_$(basename ${input1%.*}).bam | samtools bam2fq - >$outdir/${toolName}_$(basename ${input1%.*})_unmapped.fastq 2>>$logfile
 
-
-samtools view -f 0x4 -bh $outdir/${toolName}_$(basename ${input1%.*})_Aligned.out.bam | samtools bam2fq - >$outdir/${toolName}_$(basename ${input1%.*})_unmapped.fastq  2>>$logfile
 
 
 
