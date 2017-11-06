@@ -1,0 +1,4 @@
+awk '{print $3,$5}' TCGA-CZ-5985_imrep.cdr3 | sed 's/TRBV//g' | sed 's/TRBJ//g' | grep -v ","  | awk '{print $1","$2}' | sort >TCGA-CZ-5985_rop_unique_VJ.txt
+
+
+

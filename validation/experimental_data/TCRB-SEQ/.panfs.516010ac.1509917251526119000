@@ -1,0 +1,10 @@
+# Command used to proccess TCRB-SEQ data
+
+```
+grep TCRBV TCGA-CZ-5985.tsv | grep TCRBJ | awk -F "TCRBV" '{print "TCRBV"$2}' | awk '{print $1}' >TCGA-CZ-5985__V.txt
+grep TCRBV TCGA-CZ-5985.tsv | grep TCRBJ | awk -F "TCRBJ" '{print "TCRBJ"$2}' | awk '{print $1}' >TCGA-CZ-5985__J.txt
+
+grep TCRBV TCGA-CZ-5985.tsv | grep TCRBJ | awk -F "TCRBV" '{print "TCRBV"$2}' | grep -v "Out" | grep -v "," | awk -F "TCRBV" '{print "TCRBJ"$2}' | awk '{print $1}' >TCGA-CZ-5985__J.txt
+
+paste TCGA-CZ-5985__V.txt TCGA-CZ-5985__J.txt | sort | uniq > TCGA-CZ-5985__VJ.txt
+```
