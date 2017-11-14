@@ -1,0 +1,10 @@
+tr=$(grep "^TR_" */*reads.txt | wc -l)
+repeat=$(grep "^repeat_" */*reads.txt | wc -l)
+immune=$(grep "^immune_" */*reads.txt | wc -l)
+
+
+
+
+echo $tr
+echo $repeat
+echo $immune

@@ -8,10 +8,11 @@ AUTHOR="Serghei Mangul"
 ##########          The main template script          ##########
 ################################################################
 
-toolName="gsnap.tuned"
-toolPath="/u/home/h/harryyan/project-eeskin/utilities/gmap-2017-09-30/src/gsnap"
-index1="/u/home/h/harryyan/project-eeskin/utilities/gmap-2017-09-30/db/GRCh38/"
-index2="GRCh38"
+toolName="tophat2.tuned"
+toolPath="/u/home/s/serghei/collab/code/rop-fork1/prerequisite_software/tophat-2.1.1.Linux_x86_64/tophat"
+index="/u/home/s/serghei/collab/code/rop-fork1/db_human/Bowtie2Index/genome"
+index_gtf="/u/home/s/serghei/project/Homo_sapiens/igenomes/Homo_sapiens/NCBI/GRCh38/Annotation/Genes/genes.gtf"
+
 
 
 
@@ -67,9 +68,31 @@ printf "%s --- RUNNING %s\n" "$now" $toolName >> $logfile
 # run the command
 res1=$(date +%s.%N)
 
-echo "$toolPath 
-$toolPath --format=sam -D $index1 -d $index2 --max-mismatches 20 --indel-penalty 1 --gmap-min-match-length 7 --pairexpect 221 --pairdev 41 --merge-distant-samechr --ordered --novelsplicing 1 --use-splicing <index name>.splicesites --nthreads 16 --batch 5 --expand-offsets 1 $input1 $input2 | samtools view -bS ->$outdir/${toolName}_$(basename ${input1%.*}).bam  2>>$logfile
-samtools view -f 0x4 -bh $outdir/${toolName}_$(basename ${input1%.*}).bam | samtools bam2fq - >$outdir/${toolName}_$(basename ${input1%.*})_unmapped.fastq  2>>$logfile
+
+. /u/local/Modules/default/init/modules.sh
+module load samtools
+
+echo "$toolPath -o $outdir -G ${index_gtf} $index $input1 $input2  >$logfile 2>>$logfile"
+
+
+$toolPath --b2-very-sensitive
+
+-o $outdir -G ${index_gtf} $index $input1 $input2  >$logfile 2>>$logfile
+
+
+COVERAGE_SEARCH - B2_VERY_SENSITIVE - NUM_MISMATCHES - NUM_GAP_LENGTH -NUM_EDIT_DIST - NUM_REALIGN_EDIT_DIST - NUM_INSERTION_LENGTH - NUM_DELETION_LENGTH - NUM_MULTIHITS
+off-on-18-25-25-default-24-24-100
+
+
+
+samtools bam2fq $outdir/unmapped.bam >$outdir/${toolName}_$(basename ${input1%.*})_unmapped.fastq 2>>$logfile
+
+
+
+
+
+
+
 res2=$(date +%s.%N)
 dt=$(echo "$res2 - $res1" | bc)
 dd=$(echo "$dt/86400" | bc)
@@ -80,16 +103,34 @@ dm=$(echo "$dt3/60" | bc)
 ds=$(echo "$dt3-60*$dm" | bc)
 now="$(date)"
 printf "%s --- TOTAL RUNTIME: %d:%02d:%02d:%02.4f\n" "$now" $dd $dh $dm $ds >> $logfile
+
 now="$(date)"
 printf "%s --- FINISHED RUNNING %s %s\n" "$now" $toolName >> $logfile
+
 # ---------------------
+
+
+
+
 # STEP 3 - transform output if necessary (ATTENTION: TOOL SPECIFIC PART!)
+
+
+
 now="$(date)"
 printf "%s --- TRANSFORMING OUTPUT\n" "$now" >> $logfile
+
+
 #cat $outdir/one_output_file.fastq | gzip > $outdir/${toolName}_$(basename ${input%.*})_${kmer}.corrected.fastq.gz
+
 now="$(date)"
 printf "%s --- TRANSFORMING OUTPUT DONE\n" "$now" >> $logfile
+
 # remove intermediate files
 #rm $outdir/one_output_file.fastq
+
+
 # --------------------------------------
+
+
+
 printf "DONE" >> $logfile

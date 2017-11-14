@@ -1,0 +1,13 @@
+tr=$(grep "@TR_" $1 | wc -l) 
+repeat=$(grep "@repeat_" $1 | wc -l)
+immune=$(grep "@immune_" $1 | wc -l)
+virus=$(grep "@virus" $1 | wc -l )
+bacteria=$(grep "@bacteria" $1 | wc -l) 
+
+echo $((1000-$tr))
+echo $((500-$repeat))
+echo $((500-$immune))
+echo $((500-$virus))
+echo $((500-$bacteria))
+
+

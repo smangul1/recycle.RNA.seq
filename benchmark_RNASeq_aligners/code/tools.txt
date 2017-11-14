@@ -1,0 +1,9 @@
+hisat2
+hisat2.tuned
+STAR
+tophat2
+GSNAP
+STAR.tuned
+GSNAP.tuned
+Novoalign
+Novoalign.tuned
