@@ -1,5 +1,5 @@
 cat,ROP-STAR,ROP-HISAT2,ROP-TopHat2,ROP-Novoalign,ROP-GSNAP,ROP-STAR.tuned,Novoalign.tuned,HISAT2.tuned
-transcriptomic reads,1,0.990307,0.986268,1,0.994346,1,0.998384,0.999192
+transcriptomic reads,1,0.990307,0.986268,1,0.994346,1,1,0.999192
 repeat reads,0.982,0.982,0.982,0.992,0.988,0.982,0.866,0.99
 immune reads,0.984,0.924,0.86,0.99,0.91,0.984,0.994,0.972
 microbiome reads,1,1,1,1,1,1,1,1
