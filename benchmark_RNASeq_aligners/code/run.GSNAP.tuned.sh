@@ -67,8 +67,8 @@ printf "%s --- RUNNING %s\n" "$now" $toolName >> $logfile
 # run the command
 res1=$(date +%s.%N)
 
-echo "$toolPath 
-$toolPath --format=sam -D $index1 -d $index2 --max-mismatches 20 --indel-penalty 1 --gmap-min-match-length 7 --pairexpect 221 --pairdev 41 --merge-distant-samechr --ordered --novelsplicing 1 --use-splicing <index name>.splicesites --nthreads 16 --batch 5 --expand-offsets 1 $input1 $input2 | samtools view -bS ->$outdir/${toolName}_$(basename ${input1%.*}).bam  2>>$logfile
+
+$toolPath --format=sam -D $index1 -d $index2 --max-mismatches 20 --indel-penalty 1 --gmap-min-match-length 7 --pairexpect 221 --pairdev 41 --merge-distant-samechr --ordered --novelsplicing 1  --nthreads 16 --batch 5 --expand-offsets 1 $input1 $input2 | samtools view -bS ->$outdir/${toolName}_$(basename ${input1%.*}).bam  2>>$logfile
 samtools view -f 0x4 -bh $outdir/${toolName}_$(basename ${input1%.*}).bam | samtools bam2fq - >$outdir/${toolName}_$(basename ${input1%.*})_unmapped.fastq  2>>$logfile
 res2=$(date +%s.%N)
 dt=$(echo "$res2 - $res1" | bc)

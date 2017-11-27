@@ -5,6 +5,13 @@ virus=$(grep "@virus" $1 | wc -l )
 bacteria=$(grep "@bacteria" $1 | wc -l) 
 
 
+echo  $tr | awk '{ print (1238-$1)}'
+echo  $repeat | awk '{ print (500-$1)}'
+echo  $immune | awk '{ print (500-$1)}'
+echo  $virus | awk '{ print (500-$1)}'
+echo  $bacteria | awk '{ print (500-$1)}'
+
+
 echo  $tr | awk '{ print (1238-$1)/1238}'
 echo  $repeat | awk '{ print (500-$1)/500}'
 echo  $immune | awk '{ print (500-$1)/500}'

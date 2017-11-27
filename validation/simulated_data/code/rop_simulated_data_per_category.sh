@@ -1,29 +1,36 @@
 
 
 #TR
-tr_repeat=$(grep "^repeat_" lostReads/*reads.txt | wc -l)
-tr_tr=$(grep "^TR_" lostReads/*reads.txt | wc -l)
-tr_immune=$(grep "^immune_" lostReads/*reads.txt | wc -l)
-tr_bacteria=$(grep "^bacteria_" lostReads/*reads.txt | wc -l)
-tr_virus=$(grep "^virus_" lostReads/*reads.txt | wc -l)
+tr_repeat=$(grep "^repeat_" lost_human_reads.txt | wc -l)
+tr_tr=$(grep "^TR_" lost_human_reads.txt | wc -l)
+tr_immune=$(grep "^immune_" lost_human_reads.txt | wc -l)
+tr_bacteria=$(grep "^bacteria_" lost_human_reads.txt | wc -l)
+tr_virus=$(grep "^virus_" lost_human_reads.txt | wc -l)
 
 
 
 #repeat
-repeat_repeat=$(grep "^repeat_" lostRepeatSequences/*reads.txt | wc -l)
-repeat_tr=$(grep "^TR_" lostRepeatSequences/*reads.txt | wc -l)
-repeat_immune=$(grep "^immune_" lostRepeatSequences/*reads.txt | wc -l)
-repeat_bacteria=$(grep "^bacteria_" lostRepeatSequences/*reads.txt | wc -l)
-repeat_virus=$(grep "^virus_" lostRepeatSequences/*reads.txt | wc -l)
+repeat_repeat=$(grep "^repeat_" lost_repeat_reads.txt | wc -l)
+repeat_tr=$(grep "^TR_" lost_repeat_reads.txt | wc -l)
+repeat_immune=$(grep "^immune_" lost_repeat_reads.txt | wc -l)
+repeat_bacteria=$(grep "^bacteria_" lost_repeat_reads.txt | wc -l)
+repeat_virus=$(grep "^virus_" lost_repeat_reads.txt | wc -l)
 
 
 #immune
-immune_repeat=$(grep "^repeat_" antibodyProfile/*reads.txt | wc -l)
-immune_tr=$(grep "^TR_" antibodyProfile/*reads.txt | wc -l)
-immune_immune=$(grep "^immune_" antibodyProfile/*reads.txt | wc -l)
-immune_bacteria=$(grep "^bacteria_" antibodyProfile/*reads.txt | wc -l)
-immune_virus=$(grep "^virus_" antibodyProfile/*reads.txt | wc -l)
+immune_repeat=$(grep "^repeat_" immune_reads.txt | wc -l)
+immune_tr=$(grep "^TR_" immune_reads.txt | wc -l)
+immune_immune=$(grep "^immune_" immune_reads.txt | wc -l)
+immune_bacteria=$(grep "^bacteria_" immune_reads.txt | wc -l)
+immune_virus=$(grep "^virus_" immune_reads.txt | wc -l)
 
+
+#microbiome
+immune_repeat=$(grep "^repeat_" microbiome.txt | wc -l)
+immune_tr=$(grep "^TR_" microbiome.txt | wc -l)
+immune_immune=$(grep "^immune_" microbiome.txt | wc -l)
+immune_bacteria=$(grep "^bacteria_" microbiome.txt | wc -l)
+immune_virus=$(grep "^virus_" microbiome.txt | wc -l)
 
 
 
