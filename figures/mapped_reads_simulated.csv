@@ -1,6 +1,6 @@
-cat,GSNAP,HISAT2,Novoalign,STAR,TopHat2
-transcriptomic reads,0.697092,0.869144,0.984653,0.991922,0.753635
-repeat reads,0.728,0.238,0.696,0.388,0.198
-immune reads,0.886,0.826,0.99,0.984,0.614
-microbial reads,0,0,0.006,0,0
+cat,GSNAP,HISAT2,Novoalign,STAR,TopHat2,STAR.tuned,Novoalign.tuned,HISAT2.tuned
+transcriptomic reads,0.697092,0.869144,0.984653,0.991922,0.753635,0.991922,0.998384,0.98546
+repeat reads,0.728,0.238,0.696,0.388,0.198,0.388,0.866,0.68
+immune reads,0.886,0.826,0.99,0.984,0.614,0.984,0.994,0.96
+microbial reads,0,0,0.006,0,0,0,0.006,0
 

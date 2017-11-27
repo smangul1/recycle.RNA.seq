@@ -1,0 +1,7 @@
+	Total number of reads	1226	500	500	500
+1	TopHat2	933	99	307	0
+3	ROP step "lost human reads"	288	109	116	0
+4	ROP step "lost repeat reads"	0	283	0	0
+2	ROP step "immune(BCRs/TCRs)"	0	0	7	0
+5	ROP step "microbiome reads"	0	0	0	1000
+	Unaccounted	5	9	70	0
