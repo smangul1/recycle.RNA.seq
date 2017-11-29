@@ -14,3 +14,8 @@ Following Baruzzo et al. (2017), we have selected five RNA-Seq aligners that wer
 - TopHat2 (v2.1.1)  [run.tophat2.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.tophat2.sh)
 - STAR (v2.5.3a)  [run.STAR.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.STAR.sh) [run.STAR.tuned.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.STAR.tuned.sh)
 
+# Simulated RNA-Seq data
+
+To demonstrate the accuracy of ROP’s read assignment, we simulated RNA-Seq data as a mixture of transcriptomic, repeat, immune, and microbial reads.
+
+Fastq files of simulated data : [mixture_reads_R1.fastq](https://github.com/smangul1/rop-project/blob/master/validation/simulated_data/data/mixture_reads_R1.fastq) [mixture_reads_R2.fastq](https://github.com/smangul1/rop-project/blob/master/validation/simulated_data/data/mixture_reads_R2.fastq)
