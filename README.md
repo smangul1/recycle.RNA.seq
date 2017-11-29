@@ -19,3 +19,8 @@ Following Baruzzo et al. (2017), we have selected five RNA-Seq aligners that wer
 To demonstrate the accuracy of ROP’s read assignment, we simulated RNA-Seq data as a mixture of transcriptomic, repeat, immune, and microbial reads.
 
 Fastq files of simulated data : [mixture_reads_R1.fastq](https://github.com/smangul1/rop-project/blob/master/validation/simulated_data/data/mixture_reads_R1.fastq) [mixture_reads_R2.fastq](https://github.com/smangul1/rop-project/blob/master/validation/simulated_data/data/mixture_reads_R2.fastq)
+
+Mapped simulation reads are available [here](https://github.com/smangul1/rop-project/blob/master/validation/simulated_data/data/)
+
+
+
