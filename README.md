@@ -10,7 +10,7 @@ Following Baruzzo et al. (2017), we have selected five RNA-Seq aligners that wer
 
 - GSNAP (version 2017-09-30) [run.GSNAP.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.GSNAP.sh)
 - HISAT2 (2.1.0) [run.hisat2.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.hisat2.sh) [run.hisat2.tuned.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.hisat2.tuned.sh)
-- Novoalign (v3.05.01)
+- Novoalign (v3.05.01) [run.Novoalign.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.Novoalign.sh)  [run.Novoalign.tuned.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.Novoalign.tuned.sh) 
 - TopHat2 (v2.1.1)  [run.tophat2.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.tophat2.sh)
 - STAR (v2.5.3a)  [run.STAR.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.STAR.sh) [run.STAR.tuned.sh](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.STAR.tuned.sh)
 
