@@ -7,6 +7,6 @@ Following Baruzzo et al. (2017), we have selected five RNA-Seq aligners that wer
 - GSNAP (version 2017-09-30)
 - HISAT2 (2.1.0)
 - Novoalign (v3.05.01)
-- TopHat2 (v2.1.1) 
-- STAR (v2.5.3a))
+- TopHat2 (v2.1.1)  [default](https://github.com/smangul1/rop-project/blob/master/benchmark_RNASeq_aligners/code/run.tophat2.sh)
+- STAR (v2.5.3a) 
 
